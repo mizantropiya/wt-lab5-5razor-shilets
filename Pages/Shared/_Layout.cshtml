@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <header class="topbar navbar navbar-expand-sm bg-white border-bottom">
+        <div class="container app-container nav-wrap">
+            <button class="navbar-toggler nav-toggle ms-auto" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#mainNav"
+                    aria-controls="mainNav" aria-expanded="false" aria-label="Открыть меню">
+                <span class="nav-toggle-line"></span>
+                <span class="nav-toggle-line"></span>
+                <span class="nav-toggle-line"></span>
+            </button>
+
+            <nav class="collapse navbar-collapse justify-content-end mobile-nav" id="mainNav">
+                <div class="navbar-nav">
+                    <a class="nav-link" asp-page="/Index">Главная</a>
+                    <a class="nav-link" asp-page="/Accounts/Index">Счета</a>
+                    <a class="nav-link" asp-page="/Accounts/Create">Добавить</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container app-container page-content">
+        @if (TempData["Message"] is string message)
+        {
+            <div class="notice">@message</div>
+        }
+
+        @RenderBody()
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

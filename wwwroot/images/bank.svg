@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title">
+  <title id="title">Банк</title>
+  <rect x="17" y="49" width="94" height="10" rx="2" fill="#f2f2f2" stroke="#222" stroke-width="4"/>
+  <path d="M14 47 64 20l50 27H14Z" fill="#fff" stroke="#222" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M26 60v35M49 60v35M79 60v35M102 60v35" stroke="#222" stroke-width="6"/>
+  <path d="M17 98h94M12 110h104" stroke="#222" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="64" cy="39" r="5" fill="#222"/>
+</svg>

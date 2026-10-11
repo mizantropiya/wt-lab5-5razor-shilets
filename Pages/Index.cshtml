@@ -1,0 +1,18 @@
+@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Банковская система";
+}
+
+<section class="home-panel">
+    <div class="home-bank-icon">
+        <img class="home-icon" src="~/images/bank.svg" alt="Банк" />
+    </div>
+
+    <div class="home-heading">
+        <h1>Банковская система</h1>
+        <p class="home-description">Веб-приложение на ASP.NET Core Razor Pages</p>
+    </div>
+
+    <a class="btn btn-dark home-open-button" asp-page="/Accounts/Index">Открыть счета</a>
+</section>
