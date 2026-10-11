@@ -1,0 +1,46 @@
+@page
+@model WtLab5Banking.Razor.Pages.Accounts.IndexModel
+@{
+    ViewData["Title"] = "Банковские счета";
+}
+
+<div class="hero">
+    <div>
+        <h1>Банковские счета</h1>
+        <div class="small text-secondary mt-1">Всего счетов: @Model.Accounts.Count</div>
+    </div>
+    <a class="btn btn-dark app-button" asp-page="./Create">Создать счёт</a>
+</div>
+
+<div class="row g-3 account-grid">
+    @foreach (Account account in Model.Accounts)
+    {
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="card h-100 shadow-sm rounded account-card">
+                <div class="card-body p-3 d-flex flex-column">
+                    <div class="d-flex justify-content-between align-items-start gap-2 mb-2">
+                        <span class="badge text-bg-light border account-type">@account.AccountType</span>
+                        <span class="small text-secondary">#@account.Id</span>
+                    </div>
+
+                    <div class="fw-semibold mb-1">@(account.Nickname ?? "Счёт")</div>
+                    <div class="small text-secondary mb-2">@account.AccountNumber</div>
+                    <div class="mb-2">@account.OwnerName</div>
+                    <div class="money mb-3">@account.Balance.ToString("F2") @account.Currency</div>
+
+                    <div class="table-actions account-actions mt-auto">
+                        <a class="icon-link" asp-page="./Details" asp-route-id="@account.Id" title="Просмотр" aria-label="Просмотр">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6-10-6-10-6Z"/><circle cx="12" cy="12" r="2.6"/></svg>
+                        </a>
+                        <a class="icon-link" asp-page="./Edit" asp-route-id="@account.Id" title="Изменить" aria-label="Изменить">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h4l10-10-4-4L4 16v4Z"/><path d="M13 7l4 4"/></svg>
+                        </a>
+                        <a class="icon-link danger" asp-page="./Delete" asp-route-id="@account.Id" title="Удалить" aria-label="Удалить">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 7h14"/><path d="M9 7V4h6v3"/><path d="M8 7l1 12h6l1-12"/><path d="M10 10v6"/><path d="M14 10v6"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

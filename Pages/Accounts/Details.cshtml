@@ -1,0 +1,38 @@
+@page
+@model WtLab5Banking.Razor.Pages.Accounts.DetailsModel
+@{
+    ViewData["Title"] = "Счёт";
+}
+
+@if (Model.Account is not null)
+{
+    <div class="page-header details-header">
+        <div>
+            <div class="small text-secondary mb-1">Счёт из общего AccountStore</div>
+            <h1>Счёт #@Model.Account.Id</h1>
+        </div>
+        <div class="actions">
+            <a class="btn btn-outline-dark" asp-page="./Edit" asp-route-id="@Model.Account.Id">Изменить</a>
+            <a class="btn btn-outline-danger" asp-page="./Delete" asp-route-id="@Model.Account.Id">Удалить</a>
+        </div>
+    </div>
+
+    <div class="card details-card shadow-sm rounded">
+        <div class="card-body p-4">
+            <dl class="details-list mb-0">
+                <dt>ID</dt><dd>@Model.Account.Id</dd>
+                <dt>Тип</dt><dd><span class="badge text-bg-light border account-type">@Model.Account.AccountType</span></dd>
+                <dt>Номер счёта</dt><dd>@Model.Account.AccountNumber</dd>
+                <dt>Владелец</dt><dd>@Model.Account.OwnerName</dd>
+                <dt>Валюта</dt><dd>@Model.Account.Currency</dd>
+                <dt>Баланс</dt><dd class="money">@Model.Account.Balance.ToString("F2") @Model.Account.Currency</dd>
+                <dt>Название</dt><dd>@(Model.Account.Nickname ?? "—")</dd>
+                <dt>Создан</dt><dd>@Model.Account.CreatedAt.ToString("dd.MM.yyyy HH:mm")</dd>
+            </dl>
+        </div>
+    </div>
+
+    <div class="mt-3">
+        <a class="btn btn-outline-secondary" asp-page="./Index">Назад к списку</a>
+    </div>
+}

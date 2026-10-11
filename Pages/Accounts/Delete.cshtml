@@ -1,0 +1,25 @@
+@page
+@model WtLab5Banking.Razor.Pages.Accounts.DeleteModel
+@{
+    ViewData["Title"] = "Удалить счёт";
+}
+
+@if (Model.Account is not null)
+{
+    <div class="page-header">
+        <h1>Удалить счёт #@Model.Account.Id</h1>
+    </div>
+
+    <div class="card details-card shadow-sm rounded">
+        <div class="card-body p-4">
+            <p class="mb-3">Удалить счёт <strong>@(Model.Account.Nickname ?? Model.Account.AccountNumber)</strong>?</p>
+            <div class="small text-secondary mb-4">@Model.Account.OwnerName · @Model.Account.Balance.ToString("F2") @Model.Account.Currency</div>
+
+            <form method="post" class="form-actions">
+                <input type="hidden" asp-for="Id" />
+                <button type="submit" class="btn btn-danger">Удалить</button>
+                <a class="btn btn-outline-secondary" asp-page="./Details" asp-route-id="@Model.Account.Id">Отмена</a>
+            </form>
+        </div>
+    </div>
+}
