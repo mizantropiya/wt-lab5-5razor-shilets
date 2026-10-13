@@ -42,4 +42,4 @@ https://github.com/mizantropiya/wt-lab5-5razor-shilets
 
 ## Опубликованное приложение
 
-URL Render будет добавлен после публикации.
+https://ТВОЙ-АДРЕС.onrender.com
